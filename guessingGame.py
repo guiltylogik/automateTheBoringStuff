@@ -24,24 +24,24 @@ for guesses in range(1, 6):
     if guess > upper_limit or guess < lower_limit:
         print(f"\nOh! common, {guess} is not in the range {lower_limit}-{upper_limit}.")
     elif guess < com_guess:
-        print("\nYour Guess is too low!")
+        print("\nYour Guess is too low! Guess higher")
 
-        # FIXME - Hint
-        # if guesses > 2:
-        #     print(f"Hint: try between {guess} and {}")
+        # FIXME - Hint - FIXED
+        if guesses > 3:
+            print(f"Hint: the difference between {guess} and my number is {com_guess - guess}\n")
     elif guess > com_guess:
-        print("\nYour Guess is too high!")
+        print("\nYour Guess is too high! Guess lower.")
 
-        # FIXME - Hint
-        # if guesses > 2:
-        #     print("Hint: try ")
+        # FIXME - Hint - FIXED
+        if guesses > 3:
+            print(f"Hint: the difference between {guess} and my number is {guess - com_guess}\n")
     else:
         break
 
 # try_time = "tries" if guesses > 1 else "try\nyou are very lucky"
-try_time = ("try\nyou are very lucky", "tries") [guesses > 1] 
+try_time = ("tries", "try.\nYou are a very lucky person.") [guesses == 1] 
 
 if guess == com_guess:
     print(f"\nCongrats! {player_name}, You guessed my number in {guesses} {try_time}.")
 else:
-    print(f"\nSorry! the number I was thinking is {com_guess}")
+    print(f"\nSorry! {player_name}, the number I was thinking is {com_guess}.")
